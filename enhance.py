@@ -17,6 +17,7 @@
 __version__ = '0.3'
 
 import io
+import imageio
 import os
 import sys
 import bz2
@@ -580,7 +581,8 @@ if __name__ == "__main__":
         enhancer = NeuralEnhancer(loader=False)
         for filename in args.files:
             print(filename, end=' ')
-            img = scipy.ndimage.imread(filename, mode='RGB')
+            #img = scipy.ndimage.imread(filename, mode='RGB')
+            img = imageio.imread(filename)
             out = enhancer.process(img)
             out.save(os.path.splitext(filename)[0]+'_ne%ix.png' % args.zoom)
             print(flush=True)

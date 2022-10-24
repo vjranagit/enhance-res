@@ -19,7 +19,7 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-$(u
 # Install requirements before copying project files
 WORKDIR /ne
 COPY requirements.txt .
-RUN /opt/conda/bin/conda install -q -y conda numpy scipy pip pillow
+RUN /opt/conda/bin/conda install -q -y conda numpy imageio scipy pip pillow
 RUN /opt/conda/bin/python -m pip install -q -r "requirements.txt"
 
 # Copy only required project files
